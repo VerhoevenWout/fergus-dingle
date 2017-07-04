@@ -62,20 +62,11 @@ if( function_exists('acf_add_options_page') ) {
 	));
 }
 
-// function create_posttype() {
-// 	register_post_type( 'case-studies',
-// 		array(
-// 			'labels' => array(
-// 				'name' => __( 'Case Studies' ),
-// 				'singular_name' => __( 'Case Study' )
-// 			),
-// 			'public' => true,
-// 			'has_archive' => true,
-// 			'rewrite' => array('slug' => 'case-studies'),
-// 			'menu_icon' => 'dashicons-format-status',
-// 			'supports' => array( 'editor','title', 'thumbnail', ),
-//       'taxonomies' => array('post_tag'),
-// 		)
-// 	);
-// }
-// add_action( 'init', 'create_posttype' );
+// GFORM SCROLL TO ERROR
+add_filter( 'gform_confirmation_anchor', '__return_true' );
+
+function encode_email($e) {
+  $output = "";
+  for ($i = 0; $i < strlen($e); $i++) { $output .= '&#'.ord($e[$i]).';'; }
+  return $output;
+}
