@@ -80,11 +80,6 @@ jQuery(document).ready(function($){
     } else {
       $(".content-big iframe").height(SH).width(VW).css("left", -(VW - SW) /2);
     }
-    // if (SW > VW) {
-    //   $(".content-big video").width(SW).height(VH).css("top", -(VH - SH) /2);
-    // } else {
-    //   $(".content-big video").height(SH).width(VW).css("left", -(VW - SW) /2);
-    // }
   }
   resize();
   $(window).resize(function() {
@@ -94,13 +89,24 @@ jQuery(document).ready(function($){
   // LOADING SVG FADEOUT ON VIDEO 1s
   var iframe = document.querySelector('iframe');
   var player = new Vimeo.Player(iframe);
-  // var player = $('video');
   player.on('progress', function(data) {
     seconds: 1;
-    $('.loading-svg').addClass('loading-svg-hide');
+    $('.loading-svg').addClass('hide');
+    $('.play-button').addClass('hide');
   });
-  player.play();
-  player.setVolume(0);
+  var ismobile=navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)
+  if (!ismobile) {
+    player.play();
+  }
+
+
+  // player.pause();
+  $('.play-button').click(function(){
+    $(this).addClass('hide');
+    player.play();
+    $('.loading-svg').addClass('hide');
+  });
+//   player.setVolume(0);
 
 
 });

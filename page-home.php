@@ -8,7 +8,8 @@
         <div class="intro-overlay"></div>
 				<div class="content-big">
 					<img class="loading-svg" src="<?php echo get_bloginfo('template_url') ?>/assets/img/ring.svg"/>
-					<iframe src="https://player.vimeo.com/video/<?php the_field(video_id) ?>?background=1&loop=100" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					<img class="play-button" src="<?php echo get_bloginfo('template_url') ?>/assets/img/play-button.png"/>
+					<iframe id="backgroundIframe" src="https://player.vimeo.com/video/<?php the_field(video_id) ?>?background=1&loop=100" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					<!-- <video class="hidden-print home-video" autoplay="" loop="" id="bgvid">
 						<source src="<?php echo get_template_directory_uri(); ?>/assets/img/FD_HomepageLoop.mp4" type="video/mp4">
 					</video> -->
@@ -40,23 +41,7 @@
 										$args = array('order' => 'DESC', 'posts_per_page'=>-1);
 										$postslist = get_posts($args);
 										foreach ($postslist as $post) :  setup_postdata($post); ?>
-											<a href="<?php the_permalink(); ?>">
-												<?php $image = get_field('work_image');
-												if ($image) : ?>
-													<div class="individual-work" style="background:transparent url('<?php echo $image; ?>') center top no-repeat; background-size:cover;">
-														<div class="individual-work-content">
-															<h3><?php the_field('work_title') ?></h3>
-															<p><?php the_field('work_subtitle') ?></p>
-															<p><?php the_field('work_function') ?></p>
-
-															<a class="individual-work-button individual-work-button1" href="https://player.vimeo.com/video/<?php the_field('work_id')?>?autoplay=1" data-featherlight="iframe">watch video</a>
-															<a class="individual-work-button individual-work-button2" href="<?php the_permalink(); ?>">more details</a>
-														</div>
-													</div>
-												<?php else : ?>
-													<div class="fullscreen-header-img" style="background:transparent url('<?php echo get_template_directory_uri(); ?>/assets/img/header-image.jpg') center top no-repeat; background-size:cover;"></div>
-												<?php endif; ?>
-											</a>
+											<?php get_template_part( 'partials/loop-content' ); ?>
 										<?php endforeach; ?>
 									</div>
 								</div>

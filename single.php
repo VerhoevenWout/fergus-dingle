@@ -10,7 +10,6 @@
 					<h3><?php the_field('work_title') ?></h3>
 					<p><?php the_field('work_subtitle') ?> - <?php the_field('work_function') ?></p>
 					<?php the_content() ?>
-
 				</div>
 			</div>
 		</div>
