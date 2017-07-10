@@ -108,5 +108,4 @@ jQuery(document).ready(function($){
   });
 //   player.setVolume(0);
 
-
 });

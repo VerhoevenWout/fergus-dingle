@@ -281,6 +281,7 @@ a:focus{text-decoration: none!important;}
 }
 
 /*@media all and (device-width: 768px) {*/
+
 @media all and (max-width: 768px) {
 	.loading-svg{display: none;}
 }
@@ -296,6 +297,17 @@ a:focus{text-decoration: none!important;}
 	}
 	.play-button{
 		display: block;
+		pointer-events: none;
+	}
+}
+@media all and (max-width: 500px) {
+	.play-button{
+		display: block;
+		pointer-events: none;
+	}
+	.intro-overlay{
+		/*display: none;*/
+		background-color: rgba(0, 0, 0, 0.2);
 		pointer-events: none;
 	}
 }
@@ -474,17 +486,16 @@ a:focus{text-decoration: none!important;}
   -ms-filter: "FlipH";
 }
 
-
-@media all and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
 	.arrow-left-container, .arrow-right-container{
 		display: none;
 	}
 }
-@media only screen and (device-width: 768px) {
+/*@media only screen and (device-width: 768px) {
 	.arrow-left-container, .arrow-right-container{
 	  display: none;
 	}
-}
+}*/
 @media all and (min-width: 500px) and (max-width: 991px) {
 
 }

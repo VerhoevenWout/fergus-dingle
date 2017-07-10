@@ -14,14 +14,16 @@
 						<source src="<?php echo get_template_directory_uri(); ?>/assets/img/FD_HomepageLoop.mp4" type="video/mp4">
 					</video> -->
 				</div>
-				<div class="content-small">
+
+				<!-- <div class="content-small">
 					<?php $image = get_field('header_image_fallback');
 					if ($image) : ?>
 						<div class="intro-background" style="background:transparent url('<?php echo $image; ?>') center top no-repeat; background-size:cover;"></div>
 					<?php else : ?>
 						<div class="intro-background" style="background:transparent url('<?php echo get_template_directory_uri(); ?>/assets/img/header-image.jpg') center top no-repeat; background-size:cover;"></div>
 					<?php endif; ?>
-				</div>
+				</div> -->
+
 			</div>
 		</div>
 
